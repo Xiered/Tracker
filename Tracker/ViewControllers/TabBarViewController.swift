@@ -7,13 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+final class TabBarViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
-// Second push test with Sourcetree
+   /*
+    private func makeTabBarViewController() {
+        tabBar.barTintColor = UIColor(named: "")
+    }
+    */
 }
 
