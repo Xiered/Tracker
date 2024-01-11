@@ -12,6 +12,8 @@
 		C44DEA9F2B4F09D700EB1F52 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44DEA9E2B4F09D700EB1F52 /* TabBarViewController.swift */; };
 		C44DEAA42B4F09DA00EB1F52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C44DEAA32B4F09DA00EB1F52 /* Assets.xcassets */; };
 		C44DEAA72B4F09DA00EB1F52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44DEAA52B4F09DA00EB1F52 /* LaunchScreen.storyboard */; };
+		C44DEAB02B50525E00EB1F52 /* TrackersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44DEAAF2B50525E00EB1F52 /* TrackersViewController.swift */; };
+		C44DEAB22B5053C500EB1F52 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44DEAB12B5053C500EB1F52 /* StatisticsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		C44DEAA32B4F09DA00EB1F52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C44DEAA62B4F09DA00EB1F52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C44DEAA82B4F09DA00EB1F52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C44DEAAF2B50525E00EB1F52 /* TrackersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackersViewController.swift; sourceTree = "<group>"; };
+		C44DEAB12B5053C500EB1F52 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				C44DEA9E2B4F09D700EB1F52 /* TabBarViewController.swift */,
+				C44DEAAF2B50525E00EB1F52 /* TrackersViewController.swift */,
+				C44DEAB12B5053C500EB1F52 /* StatisticsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -143,6 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C44DEA9F2B4F09D700EB1F52 /* TabBarViewController.swift in Sources */,
+				C44DEAB22B5053C500EB1F52 /* StatisticsViewController.swift in Sources */,
+				C44DEAB02B50525E00EB1F52 /* TrackersViewController.swift in Sources */,
 				C44DEA9B2B4F09D700EB1F52 /* AppDelegate.swift in Sources */,
 				C44DEA9D2B4F09D700EB1F52 /* SceneDelegate.swift in Sources */,
 			);
