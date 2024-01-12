@@ -9,16 +9,20 @@ import UIKit
 
 final class TabBarViewController: UITabBarController {
     
+    // MARK: - Variables
+    
     private let trackersVC = TrackersViewController.shared // Using singlton pattern
     private let statisticsVC = StatisticsViewController.shared // Same like trackersVC
+    
+    // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        makeTabBarViewController()
+        makeTabBarViewController() // Calling creating TabBarVeiwController method
     }
     
-    private func makeTabBarViewController() {
+    private func makeTabBarViewController() { // Method for creating TabBarViewController
         tabBar.backgroundColor = UIColor(named: "YP White (day)")
         tabBar.tintColor = UIColor(named: "YP Blue")
         tabBar.barTintColor = UIColor(named: "YP Blue")

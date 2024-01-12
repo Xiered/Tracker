@@ -8,58 +8,117 @@
 import UIKit
 
 final class TrackersViewController: UIViewController {
+    
+    // MARK: - Variables
+    
     static let shared = TrackersViewController()
+
+    // MARK: - Layout components
     
-    // Creating "plus" button
-    // Creating image placeholder
-    // Creating textField
-    // Creating date with datePicker
-    // Creating label
-    // Creating second label
-    
-    
-   
-    
-    // Поле ввода
-    private let searchTexField: UISearchTextField = {
-        let searchField = UISearchTextField()
-        searchField.backgroundColor = UIColor(named: "YP Gray")
-        searchField.placeholder = "Поиск"
-        searchField.translatesAutoresizingMaskIntoConstraints = false
+    private let header: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+  
+    private let largeTitle: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Трекеры"
+        label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
+        label.textColor = UIColor(named: "YP Black (day)")
         
-        return searchField
+        return label
     }()
     
-    // Изображение с ошибкой
-    private let placeholderImage: UIImageView = {
-        let imageView = UIImageView()
+    private let searchTextField: UISearchTextField = {
+        let searchView = UISearchTextField()
+        searchView.translatesAutoresizingMaskIntoConstraints = false
+        searchView.backgroundColor = UIColor(named: "YP Light Gray")
+        searchView.placeholder = "Поиск"
         
-        imageView.image = UIImage(named: "trackersPlaceholder")
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+        return searchView
     }()
+    
+    private let imageWithError: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "trackersPlaceholder")
+        
+        return image
+    }()
+    
+    private let textUnderImageError: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Что будем отслеживать?"
+        label.font = UIFont(name: "SF Pro Text Regular", size: 12)
+        
+        return label
+    }()
+    
+    private let plusButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = UIColor(named: "YP Black (day)")
+        button.setImage(UIImage(named: "plusButtonImage"), for: .normal)
+        
+        return button
+    }()
+    
+    private let datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.preferredDatePickerStyle = .compact
+        datePicker.datePickerMode = .date
+        
+        return datePicker
+    }()
+
+    // MARK: - Methods
     
     private func setupLayout() {
+        
+        view.backgroundColor = UIColor(named: "YP White (day)") // Background for parent view
+        view.addSubview(header)
+        view.addSubview(largeTitle)
+        view.addSubview(searchTextField)
+        view.addSubview(imageWithError)
+        view.addSubview(textUnderImageError)
+        view.addSubview(plusButton)
+        view.addSubview(datePicker)
+        
         NSLayoutConstraint.activate([
-            placeholderImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            placeholderImage.centerYAnchor.constraint(equalTo: view.centerYAnchor)])
-    }
-
-    private func addSubview() {
-        view.addSubview(placeholderImage)
-        view.addSubview(searchTexField)
+            header.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            header.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            header.heightAnchor.constraint(equalToConstant: 140),
+            
+            plusButton.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: 2),
+            plusButton.topAnchor.constraint(equalTo: header.topAnchor),
+        
+            largeTitle.leadingAnchor.constraint(equalTo: header.leadingAnchor),
+            largeTitle.topAnchor.constraint(equalTo: plusButton.bottomAnchor, constant: 21),
+            
+            searchTextField.leadingAnchor.constraint(equalTo: header.leadingAnchor),
+            searchTextField.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -10),
+            searchTextField.trailingAnchor.constraint(equalTo: header.trailingAnchor),
+            
+            imageWithError.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageWithError.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 220),
+            
+            textUnderImageError.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textUnderImageError.topAnchor.constraint(equalTo: imageWithError.bottomAnchor, constant: 8),
+            
+            datePicker.trailingAnchor.constraint(equalTo: header.trailingAnchor),
+            datePicker.centerYAnchor.constraint(equalTo: largeTitle.centerYAnchor),
+            datePicker.widthAnchor.constraint(equalToConstant: 100)
+        ])
     }
     
-    private func configureParentalView() {
-        view.backgroundColor = UIColor(named: "YP White (day)")
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureParentalView()
-        addSubview()
+
         setupLayout()
     }
 }

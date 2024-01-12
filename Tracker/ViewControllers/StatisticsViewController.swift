@@ -8,5 +8,20 @@
 import UIKit
 
 final class StatisticsViewController: UIViewController {
+    
+    // MARK: - Variables
+    
     static let shared = StatisticsViewController()
+    
+    // MARK: - Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureStatisticsVC()
+    }
+    
+    private func configureStatisticsVC() {
+        view.backgroundColor = UIColor(named: "YP White (day)")
+    }
 }
