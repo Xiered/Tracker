@@ -18,7 +18,6 @@ final class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         makeTabBarViewController() // Calling creating TabBarVeiwController method
     }
     
@@ -43,6 +42,4 @@ final class TabBarViewController: UITabBarController {
         
         self.viewControllers = [trackersVC, statisticsVC]
     }
-    
 }
-

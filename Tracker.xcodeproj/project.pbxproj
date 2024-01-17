@@ -14,6 +14,9 @@
 		C44DEAA72B4F09DA00EB1F52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44DEAA52B4F09DA00EB1F52 /* LaunchScreen.storyboard */; };
 		C44DEAB02B50525E00EB1F52 /* TrackersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44DEAAF2B50525E00EB1F52 /* TrackersViewController.swift */; };
 		C44DEAB22B5053C500EB1F52 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44DEAB12B5053C500EB1F52 /* StatisticsViewController.swift */; };
+		C4E66D862B57DABD007BF009 /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E66D852B57DABD007BF009 /* Tracker.swift */; };
+		C4E66D882B57DACE007BF009 /* TrackerCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E66D872B57DACE007BF009 /* TrackerCategory.swift */; };
+		C4E66D8A2B57DAD9007BF009 /* TrackerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E66D892B57DAD9007BF009 /* TrackerRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		C44DEAA82B4F09DA00EB1F52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C44DEAAF2B50525E00EB1F52 /* TrackersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackersViewController.swift; sourceTree = "<group>"; };
 		C44DEAB12B5053C500EB1F52 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		C4E66D852B57DABD007BF009 /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
+		C4E66D872B57DACE007BF009 /* TrackerCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerCategory.swift; sourceTree = "<group>"; };
+		C4E66D892B57DAD9007BF009 /* TrackerRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,12 +64,10 @@
 		C44DEA992B4F09D700EB1F52 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				C4E66D8B2B57DE2E007BF009 /* General */,
+				C4E66D842B57DA9A007BF009 /* Models */,
 				C44DEAAE2B50350200EB1F52 /* ViewControllers */,
-				C44DEA9A2B4F09D700EB1F52 /* AppDelegate.swift */,
-				C44DEA9C2B4F09D700EB1F52 /* SceneDelegate.swift */,
 				C44DEAA32B4F09DA00EB1F52 /* Assets.xcassets */,
-				C44DEAA52B4F09DA00EB1F52 /* LaunchScreen.storyboard */,
-				C44DEAA82B4F09DA00EB1F52 /* Info.plist */,
 			);
 			path = Tracker;
 			sourceTree = "<group>";
@@ -76,6 +80,27 @@
 				C44DEAB12B5053C500EB1F52 /* StatisticsViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C4E66D842B57DA9A007BF009 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C4E66D852B57DABD007BF009 /* Tracker.swift */,
+				C4E66D872B57DACE007BF009 /* TrackerCategory.swift */,
+				C4E66D892B57DAD9007BF009 /* TrackerRecord.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C4E66D8B2B57DE2E007BF009 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				C44DEA9A2B4F09D700EB1F52 /* AppDelegate.swift */,
+				C44DEA9C2B4F09D700EB1F52 /* SceneDelegate.swift */,
+				C44DEAA52B4F09DA00EB1F52 /* LaunchScreen.storyboard */,
+				C44DEAA82B4F09DA00EB1F52 /* Info.plist */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,11 +173,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4E66D862B57DABD007BF009 /* Tracker.swift in Sources */,
+				C4E66D8A2B57DAD9007BF009 /* TrackerRecord.swift in Sources */,
 				C44DEA9F2B4F09D700EB1F52 /* TabBarViewController.swift in Sources */,
 				C44DEAB22B5053C500EB1F52 /* StatisticsViewController.swift in Sources */,
 				C44DEAB02B50525E00EB1F52 /* TrackersViewController.swift in Sources */,
 				C44DEA9B2B4F09D700EB1F52 /* AppDelegate.swift in Sources */,
 				C44DEA9D2B4F09D700EB1F52 /* SceneDelegate.swift in Sources */,
+				C4E66D882B57DACE007BF009 /* TrackerCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

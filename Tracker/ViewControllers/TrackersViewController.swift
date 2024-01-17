@@ -11,7 +11,7 @@ final class TrackersViewController: UIViewController {
     
     // MARK: - Variables
     
-    static let shared = TrackersViewController()
+    static let shared = TrackersViewController() // Singleton pattern
 
     // MARK: - Layout components
     
@@ -118,7 +118,6 @@ final class TrackersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupLayout()
     }
 }

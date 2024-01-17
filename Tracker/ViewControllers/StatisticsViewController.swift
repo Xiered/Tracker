@@ -11,13 +11,12 @@ final class StatisticsViewController: UIViewController {
     
     // MARK: - Variables
     
-    static let shared = StatisticsViewController()
+    static let shared = StatisticsViewController() // Singleton pattern
     
     // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureStatisticsVC()
     }
     
