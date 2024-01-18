@@ -12,6 +12,9 @@ final class TrackersViewController: UIViewController {
     // MARK: - Variables
     
     static let shared = TrackersViewController() // Singleton pattern
+    private var categories: [TrackerCategory] = []
+    private var completedTrackers: [TrackerRecord] = []
+    private var newCategories: [TrackerCategory] = []
 
     // MARK: - Layout components
     
