@@ -12,6 +12,8 @@
 		C41D7FB22B5D15C300D3F78A /* IrregularEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41D7FB12B5D15C300D3F78A /* IrregularEventViewController.swift */; };
 		C41D7FB42B5D160900D3F78A /* HabitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41D7FB32B5D160900D3F78A /* HabitCell.swift */; };
 		C41D7FB62B5D161200D3F78A /* IrregularEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41D7FB52B5D161200D3F78A /* IrregularEventCell.swift */; };
+		C41D7FB82B5D2F1700D3F78A /* TrackerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41D7FB72B5D2F1700D3F78A /* TrackerViewCell.swift */; };
+		C41D7FBA2B5D2FE200D3F78A /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41D7FB92B5D2FE200D3F78A /* CellModel.swift */; };
 		C44DEA9B2B4F09D700EB1F52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44DEA9A2B4F09D700EB1F52 /* AppDelegate.swift */; };
 		C44DEA9D2B4F09D700EB1F52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44DEA9C2B4F09D700EB1F52 /* SceneDelegate.swift */; };
 		C44DEA9F2B4F09D700EB1F52 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44DEA9E2B4F09D700EB1F52 /* TabBarViewController.swift */; };
@@ -30,6 +32,8 @@
 		C41D7FB12B5D15C300D3F78A /* IrregularEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrregularEventViewController.swift; sourceTree = "<group>"; };
 		C41D7FB32B5D160900D3F78A /* HabitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCell.swift; sourceTree = "<group>"; };
 		C41D7FB52B5D161200D3F78A /* IrregularEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrregularEventCell.swift; sourceTree = "<group>"; };
+		C41D7FB72B5D2F1700D3F78A /* TrackerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewCell.swift; sourceTree = "<group>"; };
+		C41D7FB92B5D2FE200D3F78A /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
 		C44DEA972B4F09D700EB1F52 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44DEA9A2B4F09D700EB1F52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C44DEA9C2B4F09D700EB1F52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			children = (
 				C44DEA9E2B4F09D700EB1F52 /* TabBarViewController.swift */,
 				C44DEAAF2B50525E00EB1F52 /* TrackersViewController.swift */,
+				C41D7FB72B5D2F1700D3F78A /* TrackerViewCell.swift */,
 				C44DEAB12B5053C500EB1F52 /* StatisticsViewController.swift */,
 				C41D7FAC2B5D149700D3F78A /* HabitOrIrregularViewController.swift */,
 				C41D7FAE2B5D153800D3F78A /* HabitViewController.swift */,
@@ -108,6 +113,7 @@
 		C4E66D842B57DA9A007BF009 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C41D7FB92B5D2FE200D3F78A /* CellModel.swift */,
 				C4E66D852B57DABD007BF009 /* Tracker.swift */,
 				C4E66D872B57DACE007BF009 /* TrackerCategory.swift */,
 				C4E66D892B57DAD9007BF009 /* TrackerRecord.swift */,
@@ -204,7 +210,9 @@
 				C44DEA9F2B4F09D700EB1F52 /* TabBarViewController.swift in Sources */,
 				C44DEAB22B5053C500EB1F52 /* StatisticsViewController.swift in Sources */,
 				C44DEAB02B50525E00EB1F52 /* TrackersViewController.swift in Sources */,
+				C41D7FBA2B5D2FE200D3F78A /* CellModel.swift in Sources */,
 				C41D7FAD2B5D149700D3F78A /* HabitOrIrregularViewController.swift in Sources */,
+				C41D7FB82B5D2F1700D3F78A /* TrackerViewCell.swift in Sources */,
 				C44DEA9B2B4F09D700EB1F52 /* AppDelegate.swift in Sources */,
 				C44DEA9D2B4F09D700EB1F52 /* SceneDelegate.swift in Sources */,
 				C4E66D882B57DACE007BF009 /* TrackerCategory.swift in Sources */,
