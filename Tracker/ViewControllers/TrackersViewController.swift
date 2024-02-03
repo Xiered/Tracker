@@ -12,9 +12,11 @@ final class TrackersViewController: UIViewController {
     // MARK: - Variables
     
     static let shared = TrackersViewController() // Singleton pattern
+    static var selectedDate: Date?
     private var categories: [TrackerCategory] = []
     private var completedTrackers: [TrackerRecord] = []
     private var newCategories: [TrackerCategory] = []
+    private var currentDate: Date = Date()
 
     // MARK: - Layout components
     
@@ -77,6 +79,20 @@ final class TrackersViewController: UIViewController {
         
         return datePicker
     }()
+    
+    private let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        return dateFormatter
+    }()
+    
+    // MARK: - CollectionView
+    
+    private let collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
 
     // MARK: - Methods
     
@@ -123,4 +139,53 @@ final class TrackersViewController: UIViewController {
         super.viewDidLoad()
         setupLayout()
     }
+    
+    private func configureNavBar() {
+        
+    }
+    
+    private func configureCollectionView() {
+        
+    }
+    
+    private func reloadPlaceholder() {
+        
+    }
+    
+    private func configureViewModel() {
+        
+    }
+    
+    private func reloadVisibleCategories() {
+        
+    }
+    
+    @objc private func addTracker() {
+        
+    }
+    
+    @objc private func datePickerChange() {
+        
+    }
+    
+    @objc private func cancelSearch() {
+        
+    }
+    
 }
+
+/*
+ 
+ extension TrackerViewCellDelegate
+ 
+ extension UICollectionViewDelegate
+ 
+ extension UICollectionViewDelegateFlowLayout
+ 
+ extension UICollectionViewDataSource
+ 
+ extension HabitViewControllerDelegate
+ 
+ extension IrregularEventViewController
+ 
+ */
