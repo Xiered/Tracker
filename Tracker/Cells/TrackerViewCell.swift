@@ -150,7 +150,7 @@ final class TrackerViewCell: UICollectionViewCell {
             symbolImage = UIImage(systemName: "checkmark", withConfiguration: symbolConfig)
             dayCheckButton.layer.opacity = 0.3
         } else {
-            symbolImage = UIImage(systemName: "plus", withConfiguration: symbolConfig)
+            symbolImage = UIImage(systemName: "plusButtonImage", withConfiguration: symbolConfig)
             dayCheckButton.layer.opacity = 1.0
         }
         dayCheckButton.setImage(symbolImage, for: .normal)

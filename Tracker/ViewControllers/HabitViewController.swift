@@ -36,6 +36,167 @@ final class HabitViewController: UIViewController {
         return habitTableView
     }()
     
+    private let cancelButton: UIButton = {
+        let cancelButton = UIButton()
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        cancelButton.setTitle("Отменить", for: .normal)
+        cancelButton.setTitleColor(UIColor(named: "YP Red"), for: .normal)
+        cancelButton.layer.borderColor = UIColor(named: "YP Red")?.cgColor
+        cancelButton.layer.borderWidth = 2.0
+        cancelButton.backgroundColor = .clear
+        cancelButton.layer.cornerRadius = 16
+        cancelButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        cancelButton.addTarget(nil, action: #selector(cancelButtonTapped), for: .touchUpInside)
+        
+        return cancelButton
+    }()
+    
+    private let createHabitButton: UIButton = {
+        let createHabitButton = UIButton()
+        createHabitButton.translatesAutoresizingMaskIntoConstraints = false
+        createHabitButton.setTitle("Создать", for: .normal)
+        createHabitButton.setTitleColor(UIColor(named: "YP White (day)"), for: .normal)
+        createHabitButton.backgroundColor = UIColor(named: "YP Grey")
+        createHabitButton.layer.cornerRadius = 16
+        createHabitButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        createHabitButton.isEnabled = false
+        createHabitButton.addTarget(nil, action: #selector(createHabitButtonTapped), for: .touchUpInside)
+        
+        return createHabitButton
+    }()
+    
+    private var category: String?
+    private var chosenDays: [Int] = []
+    private var categoryIndex: Int?
     
     // MARK: - Methods
+    
+    @objc private func cancelButtonTapped() {
+        dismiss(animated: true)
+    }
+    
+    @objc private func createHabitButtonTapped() {
+        let text: String = habitTextField.text ?? ""
+        let category: String = category ?? ""
+        if let delegate = delegate {
+            delegate.addNewHabit(TrackerCategory(header: category, trackersArray: [Tracker(id: UUID(), name: text, color: UIColor(named: "Color selection 5") ?? .green, emoji: "🩷", schedule: chosenDays)]))
+        }
+    }
+    
+    private func configureHabitLayout() {
+        view.backgroundColor = UIColor(named: "YP White (day)")
+        view.addSubview(habitTableView)
+        view.addSubview(habitTextField)
+        view.addSubview(cancelButton)
+        view.addSubview(createHabitButton)
+        
+        navigationItem.title = "Новая привычка"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "YP Black (day)")]
+        navigationItem.hidesBackButton = true
+        
+        habitTableView.delegate = self
+        habitTableView.dataSource = self
+        habitTableView.register(HabitCell.self, forCellReuseIdentifier: HabitCell.reuseIdentifier)
+        habitTableView.separatorColor = UIColor(named: "YP Gray")
+        habitTableView.separatorStyle = .singleLine
+        
+        NSLayoutConstraint.activate([
+            
+            habitTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
+            habitTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            habitTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            habitTextField.heightAnchor.constraint(equalToConstant: 75),
+            
+            habitTableView.topAnchor.constraint(equalTo: habitTextField.bottomAnchor, constant: 24),
+            habitTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            habitTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            habitTableView.heightAnchor.constraint(equalToConstant: 2 * 75),
+            
+            cancelButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            cancelButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            cancelButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -4),
+            cancelButton.heightAnchor.constraint(equalToConstant: 60),
+            
+            createHabitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            createHabitButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            createHabitButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 4),
+            createHabitButton.heightAnchor.constraint(equalToConstant: 60)
+        ])
+    }
+    
+    private func checkButtonAccessibility() {
+        if let text = habitTextField.text,
+           !text.isEmpty,
+           category != nil,
+           !chosenDays.isEmpty {
+               createHabitButton.isEnabled = true
+               createHabitButton.backgroundColor = UIColor(named: "YP Black (day)")
+               createHabitButton.setTitleColor(UIColor(named: "YP White (day)"), for: .normal)
+           } else {
+               createHabitButton.isEnabled = false
+               createHabitButton.backgroundColor = UIColor(named: "YP Gray")
+           }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureHabitLayout()
+    }
+}
+
+// MARK: - Extensions
+
+extension HabitViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
+    }
+    
+   /*/ func tableView(_ tableView: UITableView, didSelectedRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let categoryVC
+        }
+    }
+    */
+}
+
+extension HabitViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: HabitCell.reuseIdentifier, for: indexPath) as! HabitCell
+        cell.backgroundColor = UIColor(named: "YP Background (day)")
+        
+        if indexPath.row == 0 {
+            cell.textLabel?.text == "Категория"
+        } else {
+            cell.textLabel?.text == "Расписание"
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let numberOfRows = tableView.numberOfRows(inSection: 0)
+        
+        if indexPath.row == 0 {
+            cell.layer.cornerRadius = 16
+            cell.clipsToBounds = true
+            cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        } else if indexPath.row == numberOfRows - 1 {
+            cell.layer.cornerRadius = 16
+            cell.clipsToBounds = true
+            cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        }
+        
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 0))
+        
+        let lastRowIndex = tableView.numberOfRows(inSection: indexPath.section) - 1
+        if indexPath.row == lastRowIndex {
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: cell.bounds.size.width)
+        }
+    }
 }

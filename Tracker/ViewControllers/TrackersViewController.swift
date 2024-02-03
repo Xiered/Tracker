@@ -138,10 +138,13 @@ final class TrackersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        configureNavBar()
+        reloadPlaceholder()
+        configureCollectionView()
     }
     
     private func configureNavBar() {
-        
+        let leftButton = UIBarButtonItem(image: UIImage(named: "plusButtonImage"), style: .done, target: self, action: #selector(addTracker()))
     }
     
     private func configureCollectionView() {
@@ -161,7 +164,12 @@ final class TrackersViewController: UIViewController {
     }
     
     @objc private func addTracker() {
+        let habitVC = HabitViewController()
+        habitVC.delegate = self
+        let irregularEventVC = IrregularEventViewController()
+        irregularEventVC.delegate = self
         
+        let habitOrIrregular = 
     }
     
     @objc private func datePickerChange() {
