@@ -163,14 +163,12 @@ final class TrackersViewController: UIViewController {
         
     }
     
-    @objc private func addTracker() {
+  /*  @objc private func addTracker() {
         let habitVC = HabitViewController()
         habitVC.delegate = self
         let irregularEventVC = IrregularEventViewController()
         irregularEventVC.delegate = self
-        
-        let habitOrIrregular = 
-    }
+    } */
     
     @objc private func datePickerChange() {
         

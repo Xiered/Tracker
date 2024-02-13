@@ -6,11 +6,15 @@
 //
 
 import UIKit
+
 // Controller for choosing habbit or irregular event
 final class HabitOrIrregularViewController: UIViewController {
 
     // MARK: - Variables
     
     
+    
     // MARK: - Methods
+    
+    
 }
