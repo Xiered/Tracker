@@ -87,6 +87,8 @@ final class NewCategoryViewController: UIViewController {
     
 }
 
+// MARK: - Extensions
+
 extension NewCategoryViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {

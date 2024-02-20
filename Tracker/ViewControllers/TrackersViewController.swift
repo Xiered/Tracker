@@ -244,7 +244,7 @@ final class TrackersViewController: UIViewController {
     }
 }
 
-// MARK: - extensions
+// MARK: - Extensions
 
 extension TrackersViewController: UICollectionViewDelegate{
     
