@@ -9,11 +9,6 @@ import UIKit
 
 final class TabBarViewController: UITabBarController {
     
-    // MARK: - Variables
-    
-    private let trackersVC = TrackersViewController.shared // Using singlton pattern
-    private let statisticsVC = StatisticsViewController.shared // Same like trackersVC
-    
     // MARK: - Methods
     
     override func viewDidLoad() {
@@ -28,18 +23,22 @@ final class TabBarViewController: UITabBarController {
         tabBar.isTranslucent = true
         tabBar.clipsToBounds = true
         
-        let _ = UINavigationController(rootViewController: trackersVC)
-        
-        trackersVC.tabBarItem = UITabBarItem(title: "Трекеры",
-                                             image: UIImage(named: "tabBarTrackerIcon"),
-                                             selectedImage: nil)
-        
-        let _ = UINavigationController(rootViewController: statisticsVC)
-        
-        statisticsVC.tabBarItem = UITabBarItem(title: "Статистика",
-                                               image: UIImage(named: "tabBarStatisticLogo"),
-                                               selectedImage: nil)
-        
-        self.viewControllers = [trackersVC, statisticsVC]
+        let trackerViewController = TrackersViewController()
+        let trackerNavigationController = UINavigationController(rootViewController: trackerViewController)
+
+        trackerViewController.tabBarItem = UITabBarItem(title: "Трекеры",
+                                                       image: UIImage(named: "tabBarTrackerIcon"),
+                                                       selectedImage: nil
+                                                       )
+        trackerViewController.tabBarItem.accessibilityIdentifier = "TrackerView"
+
+        let statisticViewController = StatisticsViewController()
+        statisticViewController.tabBarItem = UITabBarItem(title: "Статистика",
+                                                          image: UIImage(named: "tabBarStatisticLogo"),
+                                                          selectedImage: nil
+                                                          )
+        statisticViewController.tabBarItem.accessibilityIdentifier = "StatisticView"
+
+        self.viewControllers = [trackerNavigationController, statisticViewController]
     }
 }

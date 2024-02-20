@@ -49,7 +49,7 @@ final class NewCategoryViewController: UIViewController {
     
     private func configureNewCategoryLayout() {
         navigationItem.title = "Новая категория"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "YPBlack") ?? UIColor(named: "YP Black (day)")]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "YP Black (day)") ?? UIColor(named: "YP Black (day)")]
         navigationItem.hidesBackButton = true
         
         view.addSubview(newCategoryTextField)

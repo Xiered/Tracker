@@ -23,7 +23,7 @@ final class HabitViewController: UIViewController {
         habitTextField.layer.masksToBounds = true
         habitTextField.layer.cornerRadius = 16
         habitTextField.backgroundColor = UIColor(named: "YP Background (day)")
-        habitTextField.textColor = UIColor(named: "Black (day)")
+        habitTextField.textColor = UIColor(named: "YP Black (day)")
         
         return habitTextField
     }()
