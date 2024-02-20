@@ -117,7 +117,31 @@ final class IrregularEventViewController: UIViewController {
         irregularTableView.separatorColor = UIColor(named: "YP Gray")
         irregularTableView.separatorStyle = .singleLine
         
+        [irregularTableView, irregularTextField, cancelButton, createIrregular].forEach {
+            view.addSubview($0)
+        }
         
+        NSLayoutConstraint.activate([
+            irregularTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
+            irregularTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            irregularTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            irregularTextField.heightAnchor.constraint(equalToConstant: 75),
+            
+            irregularTableView.topAnchor.constraint(equalTo: irregularTextField.bottomAnchor, constant: 24),
+            irregularTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            irregularTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            irregularTableView.heightAnchor.constraint(equalToConstant: 2 * 75),
+            
+            cancelButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            cancelButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            cancelButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -4),
+            cancelButton.heightAnchor.constraint(equalToConstant: 60),
+             
+            createIrregular.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            createIrregular.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            createIrregular.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 4),
+            createIrregular.heightAnchor.constraint(equalToConstant: 60)
+        ])
     }
     
     override func viewDidLoad() {
@@ -128,20 +152,96 @@ final class IrregularEventViewController: UIViewController {
         setupIrregularLayout()
     }
 }
-/*
+
 extension IrregularEventViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let categoryVC = CategoryViewController(chosenCategoryIndex: chosenCategoryIndex)
+            categoryVC.delegate = self
+            navigationController?.pushViewController(categoryVC, animated: true)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension IrregularEventViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: IrregularEventCell.reuseIdentifier, for: indexPath) as! IrregularEventCell
+        cell.backgroundColor = UIColor(named: "YP Background (day)")
+
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "Категория"
+        }
+        return cell
+    }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let numberOfRows = tableView.numberOfRows(inSection: 0)
+
+        if indexPath.row == 0 {
+            cell.layer.cornerRadius = 16
+            cell.clipsToBounds = true
+            cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        } else if indexPath.row == numberOfRows - 1 {
+            cell.layer.cornerRadius = 16
+            cell.clipsToBounds = true
+            cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        }
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 0))
+
+        let lastRowIndex = tableView.numberOfRows(inSection: indexPath.section) - 1
+        if indexPath.row == lastRowIndex {
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: cell.bounds.size.width)
+        }
+    }
+
 }
 
 extension IrregularEventViewController: UITextFieldDelegate {
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if category == nil {
+            showReminderAlert()
+            textField.resignFirstResponder()
+        }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        checkButtonAccessibility()
+        irregularTextField.resignFirstResponder()
+        return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder() // Closing keyboard
+    }
+
+    private func showReminderAlert() {
+        let alertController = UIAlertController(title: "Напоминание", message: "Сначала выберите Категорию", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
 extension IrregularEventViewController: CategoryViewControllerDelegate {
-    
+    func addCategory(_ category: String, index: Int) {
+        let indexPath = IndexPath(row: 0, section: 0)
+        if let cell = irregularTableView.cellForRow(at: indexPath) as? IrregularEventCell {
+            cell.detailTextLabel?.text = category
+        }
+        self.category = category
+        chosenCategoryIndex = index
+        checkButtonAccessibility()
+    }
 }
-*/
+

@@ -11,3 +11,9 @@ struct TrackerRecord { // Entity for recording trackers
     let id: UUID
     let date: String
 }
+
+extension TrackerRecord: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}

@@ -56,7 +56,7 @@ final class HabitViewController: UIViewController {
         createHabitButton.translatesAutoresizingMaskIntoConstraints = false
         createHabitButton.setTitle("Создать", for: .normal)
         createHabitButton.setTitleColor(UIColor(named: "YP White (day)"), for: .normal)
-        createHabitButton.backgroundColor = UIColor(named: "YP Grey")
+        createHabitButton.backgroundColor = UIColor(named: "YP Gray")
         createHabitButton.layer.cornerRadius = 16
         createHabitButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         createHabitButton.isEnabled = false
@@ -152,12 +152,19 @@ extension HabitViewController: UITableViewDelegate {
         return 75
     }
     
-   /*/ func tableView(_ tableView: UITableView, didSelectedRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let categoryVC
+            let categoryVC = CategoryViewController(chosenCategoryIndex: categoryIndex)
+            categoryVC.delegate = self
+            navigationController?.pushViewController(categoryVC, animated: true)
+        } else if indexPath.row == 1 {
+            let scheduleVC = ScheduleViewController(chosedDays: chosenDays)
+            scheduleVC.delegate = self
+            navigationController?.pushViewController(scheduleVC, animated: true)
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    */
+    
 }
 
 extension HabitViewController: UITableViewDataSource {
@@ -170,9 +177,9 @@ extension HabitViewController: UITableViewDataSource {
         cell.backgroundColor = UIColor(named: "YP Background (day)")
         
         if indexPath.row == 0 {
-            cell.textLabel?.text == "Категория"
+            cell.textLabel?.text = "Категория"
         } else {
-            cell.textLabel?.text == "Расписание"
+            cell.textLabel?.text = "Расписание"
         }
         return cell
     }
@@ -198,5 +205,41 @@ extension HabitViewController: UITableViewDataSource {
         if indexPath.row == lastRowIndex {
             cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: cell.bounds.size.width)
         }
+    }
+}
+
+extension HabitViewController: CategoryViewControllerDelegate {
+    func addCategory(_ category: String, index: Int) {
+        let indexPath = IndexPath(row: 0, section: 0)
+        if let cell = habitTableView.cellForRow(at: indexPath) as? HabitCell {
+            cell.detailTextLabel?.text = category
+        }
+        self.category = category
+        categoryIndex = index
+        checkButtonAccessibility()
+    }
+}
+
+extension HabitViewController: ScheduleViewControllerDelegate {
+    func addWeekDays(_ weekdays: [Int]) {
+        chosenDays = weekdays
+        var daysView = ""
+        if weekdays.count == 7 {
+            daysView = "Каждый день"
+        } else {
+            for index in chosenDays {
+                var calendar = Calendar.current
+                calendar.locale = Locale(identifier: "ru_RU")
+                let day = calendar.shortWeekdaySymbols[index]
+                daysView.append(day)
+                daysView.append(", ")
+            }
+            daysView = String(daysView.dropLast(2))
+        }
+        let indexPath = IndexPath(row: 1, section: 0)
+        if let cell = habitTableView.cellForRow(at: indexPath) as? HabitCell {
+            cell.detailTextLabel?.text = daysView
+        }
+        checkButtonAccessibility()
     }
 }

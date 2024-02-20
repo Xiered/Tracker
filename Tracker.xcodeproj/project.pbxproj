@@ -27,6 +27,10 @@
 		C4E66D862B57DABD007BF009 /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E66D852B57DABD007BF009 /* Tracker.swift */; };
 		C4E66D882B57DACE007BF009 /* TrackerCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E66D872B57DACE007BF009 /* TrackerCategory.swift */; };
 		C4E66D8A2B57DAD9007BF009 /* TrackerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E66D892B57DAD9007BF009 /* TrackerRecord.swift */; };
+		C4F9BE022B82F75D00665B81 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F9BE012B82F75D00665B81 /* HeaderCollectionReusableView.swift */; };
+		C4F9BE042B82F77200665B81 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F9BE032B82F77200665B81 /* ScheduleViewController.swift */; };
+		C4F9BE062B82F78100665B81 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F9BE052B82F78100665B81 /* SwitchCell.swift */; };
+		C4F9BE082B8449C600665B81 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F9BE072B8449C600665B81 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		C4E66D852B57DABD007BF009 /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		C4E66D872B57DACE007BF009 /* TrackerCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerCategory.swift; sourceTree = "<group>"; };
 		C4E66D892B57DAD9007BF009 /* TrackerRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerRecord.swift; sourceTree = "<group>"; };
+		C4F9BE012B82F75D00665B81 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		C4F9BE032B82F77200665B81 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		C4F9BE052B82F78100665B81 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
+		C4F9BE072B8449C600665B81 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,7 @@
 				C41D7FB52B5D161200D3F78A /* IrregularEventCell.swift */,
 				C41D7FB72B5D2F1700D3F78A /* TrackerViewCell.swift */,
 				C45750FB2B6EDACA006BE513 /* CategoryCell.swift */,
+				C4F9BE052B82F78100665B81 /* SwitchCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -110,6 +119,8 @@
 			children = (
 				C44DEA9E2B4F09D700EB1F52 /* TabBarViewController.swift */,
 				C44DEAAF2B50525E00EB1F52 /* TrackersViewController.swift */,
+				C4F9BE012B82F75D00665B81 /* HeaderCollectionReusableView.swift */,
+				C4F9BE032B82F77200665B81 /* ScheduleViewController.swift */,
 				C44DEAB12B5053C500EB1F52 /* StatisticsViewController.swift */,
 				C41D7FAC2B5D149700D3F78A /* HabitOrIrregularViewController.swift */,
 				C41D7FAE2B5D153800D3F78A /* HabitViewController.swift */,
@@ -137,6 +148,7 @@
 				C44DEA9A2B4F09D700EB1F52 /* AppDelegate.swift */,
 				C44DEA9C2B4F09D700EB1F52 /* SceneDelegate.swift */,
 				C44DEAA52B4F09DA00EB1F52 /* LaunchScreen.storyboard */,
+				C4F9BE072B8449C600665B81 /* String+Extension.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -223,9 +235,13 @@
 				C44DEAB02B50525E00EB1F52 /* TrackersViewController.swift in Sources */,
 				C41D7FBA2B5D2FE200D3F78A /* CellModel.swift in Sources */,
 				C41D7FAD2B5D149700D3F78A /* HabitOrIrregularViewController.swift in Sources */,
+				C4F9BE082B8449C600665B81 /* String+Extension.swift in Sources */,
+				C4F9BE022B82F75D00665B81 /* HeaderCollectionReusableView.swift in Sources */,
 				C41D7FB82B5D2F1700D3F78A /* TrackerViewCell.swift in Sources */,
 				C45750FC2B6EDACA006BE513 /* CategoryCell.swift in Sources */,
+				C4F9BE042B82F77200665B81 /* ScheduleViewController.swift in Sources */,
 				C44DEA9B2B4F09D700EB1F52 /* AppDelegate.swift in Sources */,
+				C4F9BE062B82F78100665B81 /* SwitchCell.swift in Sources */,
 				C44DEA9D2B4F09D700EB1F52 /* SceneDelegate.swift in Sources */,
 				C4E66D882B57DACE007BF009 /* TrackerCategory.swift in Sources */,
 				C41D7FB62B5D161200D3F78A /* IrregularEventCell.swift in Sources */,
